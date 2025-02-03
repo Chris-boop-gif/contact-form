@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
+
+  <title>Frontend Mentor | Contact form</title>
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <header>
+      <h1>Contact Us</h1>
+    </header>
+    
+   <main> 
+    <form>
+     
+        <div class="names">
+        <label for="firstname">First Name</label>
+        <br>
+        <input class="name" name="firstname" id="firstname" type="text" required>
+      </div>
+      <div class="names">
+        <label for="lastname">Last Name</label>
+        <br>
+        <input class="name" name="lastname" id="lastname" type="text" required>
+      </div>
+
+      
+
+      <div>
+        <label for="email">Email Address</label>
+        <br>
+        <input name="email" id="email" type="email" required>
+      </div>
+
+
+      <div class="names">
+        <label for="query">Query Type</label>
+        <br>
+        <div class="radioItem">
+          <input type="radio" name="query" id="general" value="General Enquiry" required>
+          <label for="general">General Enquiry</label>
+        </div>
+      </div>
+      <div class="names">
+        <label for="query" style="visibility: hidden;">Query Type</label> <!--invisible label for alignment-->
+        <div class="radioItem">
+          <br>
+          <input type="radio" name="query" id="support" value="Support Request" required>
+          <label for="support">Support Request</label>
+        </div>
+      </div>
+      
+
+
+
+      <div>
+        <label for="message">Message</label>
+        <br>
+        <textarea name="message" id="message" rows="7" required></textarea>
+      </div>
+
+      <div id="consentContainer">
+        <input type="checkbox" name="consent" id="consent" required>
+        <label for="consent">I consent to being contacted by the team</label>
+      </div>
+
+
+
+      <input type="submit" value="Submit">
+
+    </form>
+
+    <br>
+    <br>
+
+
+    <div class="attribution">
+      Challenge by <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a>.
+      Coded by <a href="#">Mia</a>.
+    </div>
+    <br>
+  </main>
+
+</body>
+
+</html>

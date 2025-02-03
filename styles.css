@@ -1,0 +1,120 @@
+* {
+    margin: 0;
+    box-sizing: border-box;
+    color: hsl(187, 24%, 22%);
+  }
+
+html {
+    background-color:hsl(148, 38%, 91%);
+    font-family: "Karla", sans-serif;   
+}
+
+body {
+    background-color: white;
+    border-radius: 10px;
+    padding: 10px 40px;
+    width: 80%;
+    margin: 100px auto;
+    font-size: 16px;
+    
+}
+
+input {
+    color: hsl(186, 15%, 59%);
+}
+
+
+
+form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;   
+}
+
+input, textarea, .radioItem {
+    border-radius: 5px;
+    border: 1px solid hsl(186, 15%, 59%);
+    height: 4em;
+    margin-top: 12px;
+}
+
+div {
+    width: 100%;
+    margin: 15px 0;
+}
+
+
+
+.names {
+    width: 49%;
+}
+
+
+
+.names input {
+    width: 100%;
+}
+
+
+
+
+.radioItem {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    margin-bottom: 0;
+}
+
+input[type="radio"] {
+    margin: 0 10px;
+    width: 20px;
+}
+
+.radioItem label {
+    font-size: 20px;
+}
+
+
+
+input[type="email"] {
+    width: 100%;
+}
+
+textarea {
+    width: 100%;
+    height: auto;
+}
+
+#consentContainer {
+    display: flex;
+    align-items: center;
+    margin-top: 0;
+}
+
+input[type="checkbox"] {
+    margin-right: 16px;
+    margin-top: 0;
+    width: 18px;
+}
+
+
+
+input[type="submit"] {
+    margin: 0 auto;
+    width: 95%;
+    height: 60px;
+    display: block;
+    background-color: hsl(169, 82%, 27%);
+    color: hsl(148, 38%, 91%);
+    border-radius: 5px;
+    border: none;
+}
+
+
+
+
+
+.attribution {
+    text-align: center;
+}
