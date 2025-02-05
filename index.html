@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
- 
+
 
 <head>
   <meta charset="UTF-8">
@@ -9,8 +9,9 @@
 
   <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&display=swap"
+    rel="stylesheet">
 
   <title>Frontend Mentor | Contact form</title>
 
@@ -18,14 +19,14 @@
 </head>
 
 <body>
-    <header>
-      <h1>Contact Us</h1>
-    </header>
-    
-   <main> 
-    <form>
-     
-        <div class="names">
+  <header>
+    <h1>Contact Us</h1>
+  </header>
+
+  <main>
+    <form novalidate>
+
+      <div class="names">
         <label for="firstname">First Name <span class="asterisk">*</span></label>
         <br>
         <input class="name" name="firstname" id="firstname" type="text" required>
@@ -38,12 +39,12 @@
         <span class="error-message">This field is required</span>
       </div>
 
-      
+
 
       <div>
         <label for="email">Email Address <span class="asterisk">*</span></label>
         <br>
-        <input name="email" id="email" type="email" required>
+        <input name="email" id="email" type="email"  required>
         <span class="error-message">Please enter a valid email address</span>
       </div>
 
@@ -65,21 +66,25 @@
           <label for="support">Support Request</label>
         </div>
       </div>
-      
+
 
 
 
       <div>
         <label for="message">Message <span class="asterisk">*</span></label>
         <br>
-        <textarea name="message" id="message" rows="7" required></textarea>
+        <textarea wrap="soft" name="message" id="message" rows="7" required></textarea>
         <span class="error-message">This field is required</span>
       </div>
 
       <div id="consentContainer">
-        <input type="checkbox" name="consent" id="consent" required>
-        <label for="consent">I consent to being contacted by the team <span class="asterisk">*</span></label>
+        <div>
+          <input type="checkbox" name="consent" id="consent" required>
+          <label for="consent">I consent to being contacted by the team <span class="asterisk">*</span></label>
+
+        </div>
         <span class="error-message">To submit this form, please consent to being contacted</span>
+
       </div>
 
 
@@ -90,10 +95,11 @@
 
     <div id="confirmationMessage">
       <div>
-        <img src="file:///C:/Users/chle/repos/contact-form-main/assets/images/icon-success-check.svg" alt="Success checkmark">
-      Message Sent!
+        <img src="file:///C:/Users/chle/repos/contact-form-main/assets/images/icon-success-check.svg"
+          alt="Success checkmark">
+        Message Sent!
       </div>
-      
+
       Thanks for completing the form. We'll be in touch soon!
     </div>
 
@@ -109,28 +115,70 @@
   </main>
 
   <script>
-   
+    document.querySelectorAll('.radioItem').forEach(item => {
+      item.addEventListener('click', function () {
+        const radio = this.querySelector('input[type="radio"]');
+        radio.checked = true;
+        radio.dispatchEvent(new Event('change')); // Trigger change event
+      });
+    });
 
     document.querySelectorAll('input[type="radio"]').forEach(radio => {
-    radio.addEventListener('change', function() {
+      radio.addEventListener('change', function () {
         document.querySelectorAll('.radioItem').forEach(item => {
-            item.classList.remove('checked');
+          item.classList.remove('checked');
         });
         if (this.checked) {
-            this.closest('.radioItem').classList.add('checked');
+          this.closest('.radioItem').classList.add('checked');
         }
+      });
     });
-});
 
-document.querySelector('form').addEventListener('submit', function(event) {
-  event.preventDefault();
-  document.getElementById('confirmationMessage').style.display = 'flex';
-})
-    </script>
+    const requiredFields = document.querySelectorAll("[required]");
+    document.querySelector('form').addEventListener('submit', function (event) {
+      event.preventDefault();
+      document.querySelectorAll('.error-message').forEach(errorMessage => {
+        errorMessage.style.display = "none";
+      });
+
+      let isValid = true;
+
+
+
+      requiredFields.forEach(field => {
+        if (!field.checkValidity()) {
+          isValid = false;
+          if (field.parentNode.querySelector('.error-message')) {
+            field.parentNode.querySelector('.error-message').style.display = "block";
+          }
+          else if (field.parentNode.nextElementSibling) {
+            field.parentNode.nextElementSibling.style.display = "block";
+          }
+
+          field.parentNode.querySelectorAll("input, textarea").forEach(element => {
+            element.style.borderColor = "hsl(0, 66%, 54%)";
+          })
+        }
+        else {
+          field.parentNode.querySelectorAll("input, textarea").forEach(element => {
+            element.style.borderColor = "hsl(187, 24%, 22%)";
+          })
+        }
+      })
+
+      if (!document.querySelector("input[type=email]").checkValidity()) {
+        document.querySelector("input[type=email]").value = "email#example.com";
+      }
+
+
+      if (isValid) {
+        document.getElementById('confirmationMessage').style.display = 'flex';
+      }
+    })
+  </script>
 
 </body>
 
 
 
 </html>
-

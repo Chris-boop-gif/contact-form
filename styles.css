@@ -40,6 +40,20 @@ form {
     justify-content: space-between;   
 }
 
+input[type="text"], input[type="email"], textarea {
+    all: unset;
+    font-family: "Karla", sans-serif; 
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid hsl(186, 15%, 59%);
+    height: 4em;
+    margin-top: 12px;
+    cursor: pointer;
+    padding-left: 25px;
+    padding-right: 25px;
+    box-sizing: border-box; /* Ensure padding does not affect the size */
+}
+
 input, textarea, .radioItem {
     border-radius: 5px;
     border: 1px solid hsl(186, 15%, 59%);
@@ -47,6 +61,8 @@ input, textarea, .radioItem {
     margin-top: 12px;
     cursor: pointer;
 }
+
+
 
 div {
     width: 100%;
@@ -74,7 +90,6 @@ div {
     align-items: center;
     overflow: hidden;
     margin-bottom: 0;
-    cursor: default;
 }
 
 .radioItem.checked {
@@ -116,13 +131,24 @@ textarea {
     width: 100%;
     height: auto;
     box-sizing: border-box;
+    white-space: pre-wrap;
+    overflow: hidden;
+    padding-top: 10px;
 }
 
 #consentContainer {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
+    justify-items: center;
+    justify-content: center;
+    flex-direction: column;
     margin-top: 30px;
     margin-bottom: 50px;
+}
+
+#consentContainer div {
+    display: flex;
+    align-items: center;
 }
 
 input[type="checkbox"] {
@@ -130,6 +156,8 @@ input[type="checkbox"] {
     margin-top: 0;
     width: 20px;
     height: 20px;
+    justify-self: center;
+    align-self: center;
 }
 
 input[type="checkbox"]:checked {
@@ -161,7 +189,8 @@ input[type="submit"]:hover {
 
 .error-message {
     display: none;
-    color: hsl(0, 66%, 54%)
+    color: hsl(0, 66%, 54%);
+    margin-top: 10px;
 }
 
 input:focus, textarea:focus, input:hover, textarea:hover {
@@ -189,7 +218,7 @@ input[type="checkbox"]:hover, input[type="checkbox"]:focus, input[type="checkbox
     display: none;
     align-items: center;
     flex-wrap: wrap;
-    position: absolute;
+    position: fixed;
     margin: 0 auto;
     padding: 20px;
     top: 20px;
